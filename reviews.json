@@ -1,0 +1,131 @@
+{
+    "reviews": [
+      {
+        "professor": "Dr. Alice Johnson",
+        "subject": "Introduction to Psychology",
+        "stars": 4,
+        "review": "Dr. Johnson is engaging and makes complex concepts easy to understand, but her grading can be strict."
+      },
+      {
+        "professor": "Prof. Mark Thompson",
+        "subject": "Advanced Calculus",
+        "stars": 5,
+        "review": "Prof. Thompson is excellent! His passion for math is evident, and his lectures are always clear and well-organized."
+      },
+      {
+        "professor": "Dr. Emily Chen",
+        "subject": "Organic Chemistry",
+        "stars": 3,
+        "review": "Dr. Chen knows her stuff, but the pace of the class can be overwhelming. Additional resources are helpful."
+      },
+      {
+        "professor": "Prof. Robert Lee",
+        "subject": "Introduction to Economics",
+        "stars": 4,
+        "review": "Prof. Lee is very knowledgeable and provides real-world examples, although the class can be a bit fast-paced."
+      },
+      {
+        "professor": "Dr. Sarah Patel",
+        "subject": "American History",
+        "stars": 5,
+        "review": "Dr. Patel makes history come alive with her storytelling and deep insights into historical events."
+      },
+      {
+        "professor": "Prof. James Smith",
+        "subject": "Biology 101",
+        "stars": 2,
+        "review": "Prof. Smith's lectures are often disorganized, and he sometimes struggles to answer student questions."
+      },
+      {
+        "professor": "Dr. Karen White",
+        "subject": "Macroeconomics",
+        "stars": 4,
+        "review": "Dr. White is very approachable and provides clear explanations, though the exams are quite challenging."
+      },
+      {
+        "professor": "Prof. David Brown",
+        "subject": "Computer Science Basics",
+        "stars": 3,
+        "review": "Prof. Brown's teaching style is a bit dry, but he covers all the necessary material. Extra practice is needed."
+      },
+      {
+        "professor": "Dr. Lisa Miller",
+        "subject": "Sociology",
+        "stars": 5,
+        "review": "Dr. Miller is fantastic! Her lectures are interactive and she encourages critical thinking."
+      },
+      {
+        "professor": "Prof. Michael Davis",
+        "subject": "Environmental Science",
+        "stars": 4,
+        "review": "Prof. Davis is passionate about the subject and provides useful fieldwork experiences, though the workload can be heavy."
+      },
+      {
+        "professor": "Dr. Jessica Garcia",
+        "subject": "World Literature",
+        "stars": 3,
+        "review": "Dr. Garcia is knowledgeable, but her grading can be inconsistent and her expectations unclear."
+      },
+      {
+        "professor": "Prof. Steven Wilson",
+        "subject": "Introduction to Philosophy",
+        "stars": 4,
+        "review": "Prof. Wilson has a great sense of humor and makes philosophical concepts accessible, though some topics can be confusing."
+      },
+      {
+        "professor": "Dr. Patricia Lee",
+        "subject": "Modern Art",
+        "stars": 5,
+        "review": "Dr. Lee is an incredible teacher who has a deep understanding of modern art and inspires creativity in her students."
+      },
+      {
+        "professor": "Prof. John Martinez",
+        "subject": "Statistics",
+        "stars": 2,
+        "review": "Prof. Martinez's explanations are often unclear and he doesn't provide enough examples for the material."
+      },
+      {
+        "professor": "Dr. Amanda Brown",
+        "subject": "Microbiology",
+        "stars": 4,
+        "review": "Dr. Brown is thorough and detailed in her teaching, but the lab work can be quite intensive."
+      },
+      {
+        "professor": "Prof. Brian Wilson",
+        "subject": "Digital Media",
+        "stars": 3,
+        "review": "Prof. Wilson is knowledgeable about the field, but his lectures can be repetitive and lack depth."
+      },
+      {
+        "professor": "Dr. Laura Thompson",
+        "subject": "Genetics",
+        "stars": 5,
+        "review": "Dr. Thompson is amazing—she is very engaging and always available for help outside of class."
+      },
+      {
+        "professor": "Prof. Richard Johnson",
+        "subject": "Financial Accounting",
+        "stars": 4,
+        "review": "Prof. Johnson is very effective at explaining complex accounting principles and provides useful real-life examples."
+      },
+      {
+        "professor": "Dr. Julia Roberts",
+        "subject": "Political Science",
+        "stars": 3,
+        "review": "Dr. Roberts is well-versed in the material, but her lectures can be dry and lack interaction."
+      },
+      {
+        "professor": "Prof. Daniel Martinez",
+        "subject": "Engineering Physics",
+        "stars": 4,
+        "review": "Prof. Martinez is enthusiastic about the subject and his problem-solving approach is very helpful."
+      },
+      {
+        "professor": "Dr. Megan Clark",
+        "subject": "Theology",
+        "stars": 5,
+        "review": "Dr. Clark provides a deep and thoughtful exploration of theological concepts and encourages lively discussion."
+      }
+    ]
+  }
+  
