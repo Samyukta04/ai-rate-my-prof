@@ -1,4 +1,4 @@
-// File: C:\Users\gshra\OneDrive\Desktop\rag\app\page.js
+// File: C:\Users\gshra\Downloads\ai-rate-my-prof\app\page.js
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

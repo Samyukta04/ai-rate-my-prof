@@ -1,4 +1,4 @@
-// File: C:\Users\gshra\OneDrive\Desktop\rag\app\api\chat\route.js
+// File: C:\Users\gshra\Downloads\ai-rate-my-prof\app\api\chat\route.js
 import * as entry from '../../../../../app/api/chat/route.js'
 import type { NextRequest } from 'next/server.js'
 
