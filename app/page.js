@@ -3,6 +3,7 @@ import { useSession, signOut } from "next-auth/react"
 import { useRouter } from 'next/navigation'
 import { useEffect, useState, useRef } from 'react'
 import { getChatResponse } from '/lib/chat.js'
+import { getEmbedding } from '/lib/embed.js' // ⬅️ new import
 
 export default function Home() {
   const { data: session, status } = useSession()
@@ -24,44 +25,43 @@ export default function Home() {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
 
-  if (status === "loading") {
-    return <div>Loading...</div>
-  }
-
+  if (status === "loading") return <div>Loading...</div>
   if (!session) return null
 
   const handleSend = async (e) => {
-  e.preventDefault();
-  if (!input.trim()) return;
+    e.preventDefault();
+    if (!input.trim()) return;
 
-  const userMessage = { role: 'user', content: input };
-  const newMessages = [...messages, userMessage];
-  setMessages(newMessages);
-  setInput('');
-  setLoading(true);
+    const userMessage = { role: 'user', content: input };
+    const newMessages = [...messages, userMessage];
+    setMessages(newMessages);
+    setInput('');
+    setLoading(true);
 
-  let aiMsg = '';
-  setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
+    let aiMsg = '';
+    setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
 
-  try {
-    await getChatResponse([...newMessages], (chunk) => {
-      aiMsg += chunk;
-      setMessages(prev => {
-        const updated = [...prev];
-        updated[updated.length - 1] = { role: 'assistant', content: aiMsg };
-        return updated;
+    try {
+      const vector = await getEmbedding(input); // ⬅️ create embedding in browser
+
+      await getChatResponse({ vector, prompt: input }, (chunk) => {
+        aiMsg += chunk;
+        setMessages(prev => {
+          const updated = [...prev];
+          updated[updated.length - 1] = { role: 'assistant', content: aiMsg };
+          return updated;
+        });
       });
-    });
-  } catch (err) {
-    setMessages(prev => [
-      ...prev,
-      { role: 'assistant', content: 'Sorry, something went wrong.' }
-    ]);
-  }
+    } catch (err) {
+      console.error(err);
+      setMessages(prev => [
+        ...prev,
+        { role: 'assistant', content: 'Sorry, something went wrong.' }
+      ]);
+    }
 
-  setLoading(false);
-};
-
+    setLoading(false);
+  };
 
   return (
     <div style={{
