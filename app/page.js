@@ -2,6 +2,7 @@
 import { useSession, signOut } from "next-auth/react"
 import { useRouter } from 'next/navigation'
 import { useEffect, useState, useRef } from 'react'
+import { getChatResponse } from '/lib/chat.js'
 
 export default function Home() {
   const { data: session, status } = useSession()
@@ -30,39 +31,37 @@ export default function Home() {
   if (!session) return null
 
   const handleSend = async (e) => {
-    e.preventDefault()
-    if (!input.trim()) return
-    const newMessages = [...messages, { role: 'user', content: input }]
-    setMessages(newMessages)
-    setInput('')
-    setLoading(true)
-    try {
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newMessages),
-      })
-      if (!res.body) throw new Error('No response body')
-      const reader = res.body.getReader()
-      let aiMsg = ''
-      while (true) {
-        const { value, done } = await reader.read()
-        if (done) break
-        aiMsg += new TextDecoder().decode(value)
-        setMessages(msgs => [
-          ...msgs.slice(0, -1),
-          msgs[msgs.length - 1],
-          { role: 'assistant', content: aiMsg }
-        ])
-      }
-    } catch (err) {
-      setMessages(msgs => [
-        ...msgs,
-        { role: 'assistant', content: 'Sorry, something went wrong.' }
-      ])
-    }
-    setLoading(false)
+  e.preventDefault();
+  if (!input.trim()) return;
+
+  const userMessage = { role: 'user', content: input };
+  const newMessages = [...messages, userMessage];
+  setMessages(newMessages);
+  setInput('');
+  setLoading(true);
+
+  let aiMsg = '';
+  setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
+
+  try {
+    await getChatResponse([...newMessages], (chunk) => {
+      aiMsg += chunk;
+      setMessages(prev => {
+        const updated = [...prev];
+        updated[updated.length - 1] = { role: 'assistant', content: aiMsg };
+        return updated;
+      });
+    });
+  } catch (err) {
+    setMessages(prev => [
+      ...prev,
+      { role: 'assistant', content: 'Sorry, something went wrong.' }
+    ]);
   }
+
+  setLoading(false);
+};
+
 
   return (
     <div style={{
